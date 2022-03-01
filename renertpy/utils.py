@@ -3,11 +3,25 @@ RenertPy Python Package
 Copyright (C) 2022 Assaf Gordon (assafgordon@gmail.com)
 License: BSD (See LICENSE file)
 """
+from PIL import ImageColor
 
 def check_iterable(data):
     # Will raise a "type error: data is not iterable"
     some_object_iterator = iter(data)
 
+def check_color_name(data):
+    if not isinstance(data,str):
+        raise ValueError("value '%s' is not a valid color name" % (str(data)))
+    try:
+        x = ImageColor.getrgb(data)
+    except ValueError:
+        raise ValueError("value '%s' is not a valid color name" % (str(data)))
+
+def validate_color_name(data):
+    if data is None:
+        return "white"
+    check_color_name(data)
+    return data
 
 def check_numeric_iterable(data):
     # Will raise ValueError if one of the elements isn't numeric
@@ -16,6 +30,16 @@ def check_numeric_iterable(data):
             b = 0 + val
         except ValueError:
             raise ValueError("Element #" + str(i) + " is not numeric ('" + str(val) + "')")
+
+
+
+def check_colorname_iterable(data):
+    # Will raise ValueError if one of the elements isn't numeric
+    for i,val in enumerate(data):
+        try:
+            check_color_name(val)
+        except ValueError:
+            raise ValueError("Element #" + str(i) + " is not a valid color name ('" + str(val) + "')")
 
 
 def check_numeric_iterable_2d(data):

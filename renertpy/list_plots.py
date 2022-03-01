@@ -13,7 +13,10 @@ from ipycanvas import Canvas
 from .utils import (check_iterable,
                     check_numeric_iterable,
                     check_numeric_iterable_2d,
-                    truncate_list)
+                    truncate_list,
+                    check_color_name,
+                    validate_color_name,
+                    check_colorname_iterable)
 
 def base_canvas(width = 1000,height = 100):
     canvas = Canvas(width=width,height=height)
@@ -40,7 +43,7 @@ def line_plot(data,color="black",width=1000,height=100):
 
     canvas = base_canvas()
     barwidth = width / len(data)
-    canvas.stroke_style = "gray"    
+    canvas.stroke_style = "gray"
     canvas.stroke_line(0,0,0,height)
     canvas.stroke_line(0,50,barwidth*(len(data)-1),50)
 
@@ -60,8 +63,7 @@ def plot_single_color_image(data,src_width,src_height,dest_width,dest_height,col
     check_iterable(data)
     check_numeric_iterable(data)
 
-    if not color:
-        color = "white"
+    color = validate_color_name(color)
 
     if src_height != (len(data) // src_width):
         raise ValueError("data length %d elements does match match src_width(%d) * src_height(%d)" % (len(data), src_width, src_height) )
@@ -106,6 +108,7 @@ def greyscale_2d_plot(data,width,color=None):
 
 def colorname_plot(data):
     check_iterable(data)
+    check_colorname_iterable(data)
     dest_width = 1000
     dest_height = 100
 
