@@ -3,6 +3,7 @@ RenertPy Python Package
 Copyright (C) 2022 Assaf Gordon (assafgordon@gmail.com)
 License: BSD (See LICENSE file)
 """
+import warnings
 from PIL import ImageColor
 
 def check_iterable(data):
@@ -28,7 +29,7 @@ def check_numeric_iterable(data):
     for i,val in enumerate(data):
         try:
             b = 0 + val
-        except ValueError:
+        except (ValueError,TypeError):
             raise ValueError("Element #" + str(i) + " is not numeric ('" + str(val) + "')")
 
 

@@ -65,7 +65,7 @@ def plot_single_color_image(data,src_width,src_height,dest_width,dest_height,col
 
     color = validate_color_name(color)
 
-    if src_height != (len(data) // src_width):
+    if src_height != (len(data) / src_width):
         raise ValueError("data length %d elements does match match src_width(%d) * src_height(%d)" % (len(data), src_width, src_height) )
 
     # Get the RGB values of the color (from a color name, or html #RGB)
