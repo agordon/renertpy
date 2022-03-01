@@ -20,9 +20,14 @@ setup(
     keywords = "jupyter",
     url = "https://github.com/agordon/renertpy",
     packages=['renertpy'],
+    install_requires=[
+              'numpy',
+              'ipycanvas',
+              'pillow'
+              ],
     classifiers=[
         "Development Status :: 3 - Alpha",
         "License :: OSI Approved :: BSD License",
     ],
-    #test_suite = 'tests',
+    test_suite = 'tests'
 )
