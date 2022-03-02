@@ -15,9 +15,11 @@ Package Information: https://pypi.python.org/pypi/renertpy
 Documentation and Examples
 ==========================
 
-See [plots](docs/RenertPy-Plots-Tutorial.html) and
-[audio](docs/RenertPy-Audio-Tutorial.html) jupyter notebooks in
-the [docs](docs/) directory.
+See [plots](docs/RenertPy-Plots-Tutorial.ipynb) and
+[audio](docs/RenertPy-Audio-Tutorial.ipynb) jupyter notebooks in
+the [docs](docs/) directory (or their corresponding
+self-contained HTML files: [plots](docs/RenertPy-Plots-Tutorial.html) and
+[audio](docs/RenertPy-Audio-Tutorial.html) ).
 
 
 Installation
