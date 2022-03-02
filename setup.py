@@ -14,7 +14,7 @@ setup(
     author_email = "AssafGordon@gmail.com",
 
     description = "Collection of functions used to teach Python at Renert School",
-    long_description="",
+    long_description="Collection of functions used to teach Python at Renert School",
 
     license = "BSD",
     keywords = "jupyter",
