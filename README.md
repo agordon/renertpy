@@ -11,6 +11,15 @@ Source Code: https://github.com/agordon/renertpy
 
 Package Information: https://pypi.python.org/pypi/renertpy
 
+
+Documentation and Examples
+==========================
+
+See [plots](docs/RenertPy-Plots-Tutorial.html) and
+[audio](docs/RenertPy-Audio-Tutorial.html) jupyter notebooks in
+the [docs](docs/) directory.
+
+
 Installation
 ============
 
