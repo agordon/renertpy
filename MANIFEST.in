@@ -1,3 +1,5 @@
 include detect_version.py
 include README.md
 include MANIFEST.in
+include renertpy/data/parrot.py
+include renertpy/data/butterfly.py
