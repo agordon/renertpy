@@ -99,5 +99,5 @@ def load_image_as_2d_rgb_list(filename):
     return data
 
 def rgb_list_to_gray_scale(data):
-    bw_data = [ (x[0]+x[1]+x[2])/3 for x in data ]
+    bw_data = [ (x[0]+x[1]+x[2])//3 for x in data ]
     return bw_data
