@@ -29,5 +29,8 @@ setup(
         "Development Status :: 3 - Alpha",
         "License :: OSI Approved :: BSD License",
     ],
-    test_suite = 'tests'
+    test_suite = 'tests',
+    include_package_data=True,
+    package_data={'renertpy': ['data/*.jpg']},
+
 )
