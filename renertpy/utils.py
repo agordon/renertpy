@@ -5,6 +5,8 @@ License: BSD (See LICENSE file)
 """
 import warnings
 from PIL import ImageColor
+import numpy
+import PIL
 
 def check_iterable(data):
     # Will raise a "type error: data is not iterable"
@@ -88,3 +90,14 @@ def calc_dest_image_size(width,height,max_size=150):
     dst_width = round(aspect * width)
     dst_height = round(aspect * height)
     return (dst_width, dst_height)
+
+def load_image_as_2d_rgb_list(filename):
+    npdata = numpy.asarray(PIL.Image.open(filename))
+    dims = npdata.shape
+    b = npdata.reshape(1, dims[0] * dims[1], 3 )
+    data = b.tolist()[0]
+    return data
+
+def rgb_list_to_gray_scale(data):
+    bw_data = [ (x[0]+x[1]+x[2])/3 for x in data ]
+    return bw_data
