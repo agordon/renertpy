@@ -38,5 +38,12 @@ class PlotFunctionsTest(unittest.TestCase):
         x = rgb_plot(data)
         self.assertIsInstance(x,PIL.Image.Image)
 
+    def test_rgb_2d_plot(self):
+        data = [ [255,0,0], [0,0,255], [255,255,0],
+                 [255,0,0], [0,0,255], [255,255,0] ]
+
+        x = rgb_2d_plot(data, 2)
+        self.assertIsInstance(x,PIL.Image.Image)
+
 if __name__ == '__main__':
     unittest.main()

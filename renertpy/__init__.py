@@ -9,7 +9,8 @@ from .list_plots import (bar_plot,
                          greyscale_plot,
                          greyscale_2d_plot,
                          colorname_plot,
-                         rgb_plot)
+                         rgb_plot,
+                         rgb_2d_plot)
 
 from .list_audio import (play_frequencies,
         play_frequencies_durations)

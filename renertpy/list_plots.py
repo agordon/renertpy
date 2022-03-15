@@ -16,7 +16,8 @@ from .utils import (check_iterable,
                     truncate_list,
                     check_color_name,
                     validate_color_name,
-                    check_colorname_iterable)
+                    check_colorname_iterable,
+                    calc_dest_image_size)
 
 def base_canvas(width = 1000,height = 100):
     canvas = Canvas(width=width,height=height)
@@ -137,4 +138,21 @@ def rgb_plot(data):
 
     image = Image.fromarray(foo.astype('uint8'), mode="RGB")
     image = image.resize((dest_width,dest_height),resample=Image.NEAREST)
+    return image
+
+def rgb_2d_plot(data,width):
+    check_iterable(data)
+    check_numeric_iterable_2d(data)
+
+    height = len(data)//width
+    (dw,dh) = calc_dest_image_size( width, height )
+
+    # Create a numpy array of 0.0 to 1.0 (from greyscale input elements of 0-255)
+    np_data = np.asarray(data)
+
+    # Merge into one numpy array and reshape it into WxHx3 (3 = for RGB)
+    foo = np.reshape(np_data, (height, width, 3))
+
+    image = Image.fromarray(foo.astype('uint8'), mode="RGB")
+    image = image.resize((dw,dh),resample=Image.NEAREST)
     return image

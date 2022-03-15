@@ -78,3 +78,13 @@ def truncate_list(data, max_count):
         data = data[:count]
     return data
 
+def calc_dest_image_size(width,height,max_size=150):
+    if width>max_size or height>max_size:
+        raise ValueError("image too large (%d x %d), max allowed width/height is %d pixels" % ( width,height,max_size ) )
+
+    h_aspect = max_size / width
+    v_aspect = max_size / height
+    aspect = min(h_aspect,v_aspect)
+    dst_width = round(aspect * width)
+    dst_height = round(aspect * height)
+    return (dst_width, dst_height)
