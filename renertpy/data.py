@@ -6,6 +6,7 @@ License: BSD (See LICENSE file)
 
 from .utils import load_image_as_2d_rgb_list,rgb_list_to_gray_scale
 import os
+import copy
 
 parrot_rgb = None
 parrot_bw = None
@@ -25,13 +26,13 @@ def load_picture_data():
     butterfly_bw = rgb_list_to_gray_scale(butterfly_rgb)
 
 def get_data_parrot_rgb():
-    return parrot_rgb
+    return copy.deepcopy(parrot_rgb)
 
 def get_data_parrot_bw():
-    return parrot_bw
+    return copy.deepcopy(parrot_bw)
 
 def get_data_butterfly_rgb():
-    return butterfly_rgb
+    return copy.deepcopy(butterfly_rgb)
 
 def get_data_butterfly_bw():
-    return butterfly_bw
+    return copy.deepcopy(butterfly_bw)
