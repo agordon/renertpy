@@ -8,6 +8,7 @@ import renertpy
 from renertpy import *
 from ipycanvas import Canvas
 import PIL
+from renertpy.data import files
 
 class DataFunctionsTest(unittest.TestCase):
 
@@ -34,6 +35,14 @@ class DataFunctionsTest(unittest.TestCase):
     def test_data_rgb(self):
         x = get_data_rgb("tulips")
         self.assertIsInstance(x,list)
+
+    def test_files_rgb(self):
+        for k,v in files.items():
+            x = get_data_rgb(k)
+
+    def test_files_bw(self):
+        for k,v in files.items():
+            x = get_data_bw(k)
 
 if __name__ == '__main__':
     unittest.main()

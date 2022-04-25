@@ -9,12 +9,17 @@ import os
 import copy
 
 files = {
-            "parrot" : "parrot.jpg",
-            "butterfly" : "butterfly.jpg",
-            "rose" : "rose.jpg",
-            "balls" : "balls.jpg",
-            "tulips" : "tulips.jpg"
-            }
+        "balls" : "balls.jpg",
+        "butterfly" : "butterfly.jpg",
+        "kitten" : "kitten.jpg",
+        "llama" : "llama.jpg",
+        "panda" : "panda.jpg",
+        "parrot" : "parrot.jpg",
+        "puppy" : "puppy.jpg",
+        "rose" : "rose.jpg",
+        "sloth" : "sloth.jpg",
+        "tulips" : "tulips.jpg"
+    }            
 
 images = { }
 
