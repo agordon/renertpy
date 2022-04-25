@@ -8,31 +8,53 @@ from .utils import load_image_as_2d_rgb_list,rgb_list_to_gray_scale
 import os
 import copy
 
-parrot_rgb = None
-parrot_bw = None
-butterfly_rgb = None
-butterfly_bw = None
+files = {
+            "parrot" : "parrot.jpg",
+            "butterfly" : "butterfly.jpg",
+            "rose" : "rose.jpg",
+            "balls" : "balls.jpg",
+            "tulips" : "tulips.jpg"
+            }
+
+images = { }
 
 def load_picture_data():
-    global parrot_rgb, parrot_bw
-    global butterfly_rgb, butterfly_bw
+    global images
 
     rootdir = os.path.abspath(os.path.dirname(__file__))
     datadir = os.path.join(rootdir,"data")
-    parrot_rgb = load_image_as_2d_rgb_list( os.path.join(datadir,"parrot.jpg") )
-    butterfly_rgb = load_image_as_2d_rgb_list( os.path.join(datadir,"butterfly.jpg") )
 
-    parrot_bw = rgb_list_to_gray_scale(parrot_rgb)
-    butterfly_bw = rgb_list_to_gray_scale(butterfly_rgb)
+    for k,filename in files.items():
+            rgb_data = load_image_as_2d_rgb_list( os.path.join(datadir,filename) )
+            bw_data = rgb_list_to_gray_scale(rgb_data)
+
+            images[k + "_rgb"] = rgb_data
+            images[k + "_bw"] = bw_data
+
+def get_data(image,suffix):
+    if (suffix not in ["rgb","bw"]):
+        raise ValueError("Invalid suffix '%s': use rgb or bw" % (str(suffix)))
+
+    key = image + "_" + suffix
+    if not (key in images):
+        raise ValueError("Invalid image name '%s': use one of: %s" \
+                % ( str(image), ",".join(files.keys())))
+    return copy.deepcopy( images[key] )
+
+def get_data_rgb(image):
+    return get_data(image,"rgb")
+
+def get_data_bw(image):
+    return get_data(image,"bw")
 
 def get_data_parrot_rgb():
-    return copy.deepcopy(parrot_rgb)
+    return get_data_rgb("parrot")
 
 def get_data_parrot_bw():
-    return copy.deepcopy(parrot_bw)
-
+    return get_data_bw("parrot")
+    
 def get_data_butterfly_rgb():
-    return copy.deepcopy(butterfly_rgb)
+    return get_data_rgb("butterfly")
 
 def get_data_butterfly_bw():
-    return copy.deepcopy(butterfly_bw)
+    return get_data_bw("butterfly")

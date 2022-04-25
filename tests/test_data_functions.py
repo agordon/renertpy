@@ -27,5 +27,13 @@ class DataFunctionsTest(unittest.TestCase):
         x = get_data_butterfly_bw()
         self.assertIsInstance(x,list)
 
+    def test_data_bw(self):
+        x = get_data_bw("tulips")
+        self.assertIsInstance(x,list)
+
+    def test_data_rgb(self):
+        x = get_data_rgb("tulips")
+        self.assertIsInstance(x,list)
+
 if __name__ == '__main__':
     unittest.main()
