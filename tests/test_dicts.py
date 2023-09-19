@@ -17,5 +17,9 @@ class DictsFunctionsTest(unittest.TestCase):
         x = get_pokemon_abilities()
         self.assertIsInstance(x,dict)
 
+    def test_l_words(self):
+        x = get_l_words()
+        self.assertIsInstance(x,dict)
+
 if __name__ == '__main__':
     unittest.main()
