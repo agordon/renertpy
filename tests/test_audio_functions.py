@@ -4,7 +4,7 @@ Copyright (C) 2022 Assaf Gordon (assafgordon@gmail.com)
 License: BSD (See LICENSE file)
 """
 import unittest
-from renertpy import *
+from renertpy.all import *
 from IPython.display import Audio
 
 class AudioFunctionsTest(unittest.TestCase):

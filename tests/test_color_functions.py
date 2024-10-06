@@ -5,7 +5,7 @@ License: BSD (See LICENSE file)
 """
 import unittest
 import renertpy
-from renertpy import *
+from renertpy.all import *
 
 class ColorFunctionsTest(unittest.TestCase):
 

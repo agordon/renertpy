@@ -3,7 +3,7 @@ Renert-Py
 
 Collection of functions used to teach Python on Jupyter at Renert School.
 
-Copyright (C) 2022 Assaf Gordon (assafgordon@gmail.com)
+Copyright (C) 2022-2024 Assaf Gordon (assafgordon@gmail.com)
 
 License: BSD
 
