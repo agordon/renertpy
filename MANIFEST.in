@@ -11,4 +11,4 @@ include renertpy/data/puppy.jpg
 include renertpy/data/rose.jpg
 include renertpy/data/sloth.jpg
 include renertpy/data/tulips.jpg
-
+include renertpy/moby/*.py
