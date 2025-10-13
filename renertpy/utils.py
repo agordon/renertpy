@@ -34,7 +34,25 @@ def check_numeric_iterable(data):
         except (ValueError,TypeError):
             raise ValueError("Element #" + str(i) + " is not numeric ('" + str(val) + "')")
 
+def is_numeric_iterable(data):
+    try:
+        check_numeric_iterable(data)
+        return True
+    except ValueError:
+        return False
 
+def check_str_iterable(data):
+    # Will raise ValueError if one of the elements isn't a string
+    for i,val in enumerate(data):
+        if not isinstance(val,str):
+            raise ValueError("Element #" + str(i) + " is not a string ('" + str(val) + "')")
+
+def is_str_iterable(data):
+    try:
+        check_str_iterable(data)
+        return True
+    except ValueError:
+        return False
 
 def check_colorname_iterable(data):
     # Will raise ValueError if one of the elements isn't numeric
@@ -70,6 +88,20 @@ def check_numeric_iterable_2d(data):
                 b = 0 + val
             except (TypeError,ValueError):
                 raise ValueError("Element [%d][%d] is not numeric (content = '%s')" % (i,j,str(val)))
+
+
+def is_rgb_iterable(data):
+    try:
+        # First, check it's a 2D numeric data
+        check_numeric_iterable_2d(data)
+
+        # then check if the 2nd dimension is 3 (for r,g,b)
+        if len(data[0])==3:
+            return True
+
+        return False
+    except ValueError:
+        return False
 
 
 def truncate_list(data, max_count):
