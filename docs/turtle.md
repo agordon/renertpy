@@ -72,4 +72,16 @@ panda_rgb = get_data_rgb("panda")
 draw_image(panda_rgb, 150)
 ```
 
+## Output Example
+
 ![](images/turtle_demo.png)
+
+## Installation notes
+
+On Linux/Chromebook, if you get an error message:
+
+    `ImportError: cannot import name 'ImageTK'`
+
+Try to install:
+
+    `sudo apt-get install python3-pil python3-pil.imagetk`
