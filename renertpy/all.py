@@ -23,7 +23,7 @@ from .data import (load_picture_data,
                   get_data_butterfly_rgb,
                   get_data_butterfly_bw)
 
-from .colors import rgb_to_hsv, hsv_to_rgb
+from .colors import rgb_to_hsv, hsv_to_rgb, rgb_to_lab, lab_to_rgb
 
 from .display import clear_output
 
