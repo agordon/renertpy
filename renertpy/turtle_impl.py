@@ -100,11 +100,11 @@ def resize_image(image, new_width, new_height=None):
     return resized_image
 
 def create_photoimage_from_image(image):
-    # This dummy call ensure there's an initialized screen.
-    # otherwise, TK.PhotoImage() fails with "no root window"
-    dummy = getscreen()
-    photo_image = ImageTk.PhotoImage(image=image)
-    return photo_image
+    screen = getscreen()          # ensures a root window exists
+    buf = io.BytesIO()
+    image.save(buf, format="PNG")
+    data = base64.b64encode(buf.getvalue())
+    return TK.PhotoImage(data=data, master=screen.cv)
 
 
 def draw_photoimage_at_turtle(photo_image):
