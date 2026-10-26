@@ -7,6 +7,9 @@ License: BSD (See LICENSE file)
 from uuid import uuid4
 from turtle import getscreen,register_shape,Shape,stamp,penup,pendown,isdown,colormode,pos,goto,shape
 from PIL import Image, ImageTk
+import base64, io
+import tkinter as TK
+
 from .colors import hexcolor_to_rgb
 from .data import get_data_bw, get_data_rgb, load_picture_data
 from .utils import is_numeric_iterable, is_str_iterable, is_rgb_iterable
